@@ -53,7 +53,9 @@ export class RemixErrorBoundary extends React.Component<
 
   render() {
     if (this.state.error) {
-      return <this.props.component error={this.state.error} />;
+      return (
+        <this.props.component error={this.props.error || this.state.error} />
+      );
     } else {
       return this.props.children;
     }
